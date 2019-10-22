@@ -6,7 +6,7 @@ import { tsPropertySignature } from '@babel/types'
 
 export default props => {
     return (
-        <Provider store={createStore(reducers,{})}>
+        <Provider store={createStore(reducers,props.initalState)}>
             {props.children}
         </ Provider>
     )

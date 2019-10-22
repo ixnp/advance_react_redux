@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 class CommentList extends Component {
     renderComments() {
