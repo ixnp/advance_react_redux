@@ -1,13 +1,14 @@
 import React from 'react'
 import { Provider }  from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import reduxPromise from 'redux-promise'
 import reducers from 'reducers'
-import { tsPropertySignature } from '@babel/types'
 
-export default props => {
+export default ({children, initalState = {}}) => {
+    const store = createStore(reducers,initalState, applyMiddleware(reduxPromise))
     return (
-        <Provider store={createStore(reducers,props.initalState)}>
-            {props.children}
+        <Provider store={store}>
+            {children}
         </ Provider>
     )
 }
